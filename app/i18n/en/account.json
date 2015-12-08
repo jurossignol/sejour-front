@@ -1,0 +1,63 @@
+{
+    "account": {
+        "title": {
+            "login": "Authentication",
+            "register": "Registration"
+        },
+        "form": {
+            "email": "E-mail",
+            "email.placeholder": "Your e-mail",
+            "password": "Password",
+            "password.placeholder": "Your password",
+            "newpassword": "New password",
+            "newpassword.placeholder": "New password",
+            "confirmpassword": "New password confirmation",
+            "confirmpassword.placeholder": "Confirm the new password",
+            "rememberme": "Automatic Login",
+            "type": "I am",
+            "type.company" : "a company",
+            "type.person" : "a person",
+            "button": {
+                "login": "Authenticate",
+                "register": "Register"
+            }
+        },
+        "messages": {
+            "error": {
+                "authentication": "<strong>Authentication failed!</strong> Please check your credentials and try again.",
+                "register": "<strong>Registration failed!</strong> Please try again later.",
+                "emailexists": "<strong>E-mail is already in use!</strong> Please choose another one.",
+                "passworddontmatch": "The password and its confirmation do not match!"
+            },
+            "info": {
+                "register": "You don't have an account yet? <a href=\"#/register\">Register a new account</a>"
+            },
+            "success": {
+                "register": "<strong>Registration saved!</strong> Please check your email for confirmation."
+            },
+            "validate": {
+                "email": {
+                    "required": "Your e-mail is required.",
+                    "invalid": "Your e-mail is invalid.",
+                    "minlength": "Your e-mail is required to be at least 5 characters.",
+                    "maxlength": "Your e-mail cannot be longer than 50 characters."
+                },
+                "newpassword": {
+                    "required": "Your password is required.",
+                    "minlength": "Your password is required to be at least 5 characters.",
+                    "maxlength": "Your password cannot be longer than 50 characters.",
+                    "strength": "Password strength:"
+                },
+                "confirmpassword": {
+                    "required": "Your confirmation password is required.",
+                    "minlength": "Your confirmation password is required to be at least 5 characters.",
+                    "maxlength": "Your confirmation password cannot be longer than 50 characters."
+                },
+                "type.required": "You must specify whether you are a company or a person."
+            }
+        },
+        "password" : {
+            "forgot": "Did you forget your password?"
+        }
+    }
+}

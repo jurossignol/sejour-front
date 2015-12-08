@@ -1,0 +1,43 @@
+{
+    "main": {
+    	"unknown": {
+    		"title": "Bienvenue sur le portail de l'administration des étrangers en France",
+    		"choice": "Choisissez votre profil :",
+    		"button": {
+    			"individual": "Je suis un particulier",
+    			"individual.short": "Particulier",
+    			"company": "Je suis une entreprise",
+    			"company.short": "Entreprise"
+    		}
+    	},
+    	"usager": {
+	        "title": {
+		        "study": "Je veux <strong>étudier</strong> en France",
+		        "work": "Je veux <strong>travailler</strong> en France",
+		        "family": "Je veux <strong>faire venir ma famille</strong> en France",
+		        "extend": "Je veux <strong>prolonger mon séjour</strong> en France",
+		        "nationality": "Je veux <strong>acquérir la nationalité</strong> française"
+	        }
+	    },
+       	"company": {
+       		"title": {
+       			"hire": "Je veux <strong>employer</strong> un salarié étranger",
+       			"declare": "Je veux <strong>déclarer l'embaûche</strong> d'un salarié étranger",
+       			"verify": "Je veux <strong>vérifier le droit au séjour</strong> d'un salarié étranger"
+       		}
+       	},
+    	"agent": {
+	        "title": {
+		        "verify": "Récevabilité des demandes",
+		        "rdv.drive": "Rendez-vous",
+		        "decision": "Instruction et décision",
+		        "reconstruction": "Reconstitution de l'état-civil",
+		        "usager": "Gestion des usagers",
+		        "application": "Gestion des demandes",
+		        "rdv.setting": "Calendrier des rendez-vous",
+		        "question": "Messages",
+		        "analyse": "Analyse des données et pilotage"
+	        }
+       	}
+    }
+}

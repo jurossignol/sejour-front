@@ -1,0 +1,43 @@
+{
+    "main": {
+    	"unknown": {
+    		"title": "Welcome on the portal of the foreigners' administration in France",
+    		"choice": "Choose your profile :",
+    		"button": {
+    			"individual": "I am an individual",
+    			"individual.short": "Individual",
+    			"company": "I am a company",
+    			"company.short": "Entreprise"
+    		}
+    	},
+    	"usager": {
+	        "title": {
+		        "study": "I want to <strong>study</strong> in France",
+		        "work": "I want to <strong>work</strong> in France",
+		        "family": "I want to <strong>get my family</strong> in France",
+		        "extend": "I want to <strong>extend my stay</strong> in France",
+		        "nationality": "I want to <strong>acquire French nationality</strong>"
+	        }
+       	},
+       	"company": {
+       		"title": {
+       			"hire": "I want to <strong>hire</strong> a foreign employee",
+       			"declare": "I want to <strong>declare</strong> a hiring of a foreign employee",
+       			"verify": "I want to <strong>verify the residency rights</strong> of a foreign employee"
+       		}
+       	},
+    	"agent": {
+	        "title": {
+		        "verify": "Application recevability",
+		        "rdv.preview": "Appointments",
+		        "decision": "Instruction and decision",
+		        "reconstruction": "Civil state reconstruction",
+		        "usager": "Users management",
+		        "application": "Application management",
+		        "rdv.setting": "Appointments calendar",
+		        "question": "Messages",
+		        "analyse": "Data analysis and control"
+	        }
+       	}
+    }
+}
