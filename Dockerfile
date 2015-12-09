@@ -1,18 +1,18 @@
-FROM node
+# Pull base image.
+FROM digitallyseamless/nodejs-bower-grunt
 
-RUN apt-get update
+# Install ruby & compass libs
+RUN apt-get update && apt-get install -y ruby ruby-compass && \
+            apt-get clean && \
+            rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /app
 
-# Install Prerequisites
-RUN npm install -g grunt-cli
-RUN npm install -g bower
-
-# Install packages
+# Install node dependencies
 COPY package.json /app/package.json  
 RUN npm install
 
-# Manually trigger bower.
+# Install bower dependencies
 COPY .bowerrc /app/.bowerrc  
 COPY bower.json /app/bower.json  
 RUN bower install --config.interactive=false --allow-root

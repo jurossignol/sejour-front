@@ -1,0 +1,108 @@
+$icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
+$fa-font-path: "../bower_components/font-awesome-sass/assets/fonts/font-awesome/";
+// bower:scss
+@import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "font-awesome-sass/assets/stylesheets/font-awesome.scss";
+// endbower
+
+body {
+    /*background: #fafafa;*/
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+/* Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+/* Developement Ribbon */
+.development {
+    position: absolute;
+    width: 149px;
+    height: 149px;
+    top: 0;
+    left: 0;
+    border: 0;
+    z-index: 1000;
+    background-image: url("../images/development_ribbon.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+}
+
+/* Version number in navbar */
+.navbar-version {
+    font-size: 10px;
+    color: #ccc
+}
+
+/* Browser Upgrade Prompt */
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* start Password strength bar style */
+ul#strengthBar {
+    display:inline;
+    list-style:none;
+    margin:0;
+    margin-left:15px;
+    padding:0;
+    vertical-align:2px;
+}
+
+.point:last-of-type {
+    margin:0 !important;
+}
+.point {
+    background:#DDD;
+    border-radius:2px;
+    display:inline-block;
+    height:5px;
+    margin-right:1px;
+    width:20px;
+}
+/* end Password strength bar style */
+
+/* start angular-animate */
+.ng-hide-add, .ng-hide-remove {
+    /* ensure visibility during the transition */
+    display: block !important;
+}
+/* end angular-animate */
+
+.customwell {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+}
+
+.row-center {
+    margin: auto;
+    text-align: center;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+/* start title */
+.title-main > h1 {
+    font-size: 24px;
+    font-weight: bolder;
+    color: rgb(53, 86, 137);
+    border-color: rgb(53, 86, 137);
+}
+.title-underline > h1 {
+    padding-bottom: 7px;
+    border-bottom: 2px solid;
+}
+/* end title */
+
+/* start box menu */
+@import 'boxMenu';
+/* end box menu */

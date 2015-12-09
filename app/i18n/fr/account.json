@@ -57,7 +57,7 @@
             }
         },
         "password" : {
-            "forgot": "Avez-vous oublié votre mot de passe?"
+            "forgot": "Avez-vous oublié votre mot de passe ?"
         }
     }
 }

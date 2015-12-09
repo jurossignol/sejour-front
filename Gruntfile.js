@@ -44,9 +44,9 @@ module.exports = function(grunt) {
         files: ['test/spec/**/*.js'],
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
       },
-      styles: {
-        files: ['<%= yeoman.app %>/styles/**/*.css'],
-        tasks: ['newer:copy:styles', 'postcss']
+      compass: {
+        files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}'],
+        tasks: ['compass:server', 'postcss:server']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -229,6 +229,39 @@ module.exports = function(grunt) {
               }
             }
           }
+      },
+      sass: {
+        src: ['<%= yeoman.app %>/styles/**/*.{scss,sass}'],
+        ignorePath: /(\.\.\/){1,2}bower_components\//
+      }
+    },
+
+    // Compiles Sass to CSS and generates necessary files if requested
+    compass: {
+      options: {
+        sassDir: '<%= yeoman.app %>/styles',
+        cssDir: '.tmp/styles',
+        generatedImagesDir: '.tmp/images/generated',
+        imagesDir: '<%= yeoman.app %>/images',
+        javascriptsDir: '<%= yeoman.app %>/scripts',
+        fontsDir: '<%= yeoman.app %>/styles/fonts',
+        importPath: './bower_components',
+        httpImagesPath: '/images',
+        httpGeneratedImagesPath: '/images/generated',
+        httpFontsPath: '/styles/fonts',
+        relativeAssets: false,
+        assetCacheBuster: false,
+        raw: 'Sass::Script::Number.precision = 10\n'
+      },
+      dist: {
+        options: {
+          generatedImagesDir: '<%= yeoman.dist %>/images/generated'
+        }
+      },
+      server: {
+        options: {
+          sourcemap: true
+        }
       }
     },
 
@@ -311,7 +344,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>/images',
-          src: '**/*.{jpg,jpeg,gif}', // we don't optimize PNG files as it doesn't work on Linux. If you are not on Linux, feel free to use '**/*.{png,jpg,jpeg,gif}'
+          src: '**/*.{jpg,jpeg,gif}', // we don't optimize PNG files as it doesn't work on Linux. If you are not on Linux, feel free to use '**/*.{png,jpg,jpeg,gif}' and update copy task for png
           dest: '<%= yeoman.dist %>/images'
         }]
       }
@@ -391,7 +424,7 @@ module.exports = function(grunt) {
             '*.html',
             'scripts/**/*.html',
             'i18n/**/*.json',
-            'images/**/*.{webp}',
+            'images/**/*.{png,webp}', // add png here if not in imagemin
             'styles/fonts/**/*.*'
           ]
         }, {
@@ -401,13 +434,13 @@ module.exports = function(grunt) {
           src: ['generated/*']
         }, {
           expand: true,
-          cwd: 'bower_components/bootstrap/dist',
-          src: 'fonts/*',
+          cwd: '.',
+          src: 'bower_components/bootstrap-sass/assets/fonts/bootstrap/*',
           dest: '<%= yeoman.dist %>'
         }, {
           expand: true,
-          cwd: 'bower_components/font-awesome',
-          src: 'fonts/*',
+          cwd: '.',
+          src: 'bower_components/font-awesome-sass/assets/fonts/font-awesome/*',
           dest: '<%= yeoman.dist %>'
         },
         {
@@ -427,9 +460,9 @@ module.exports = function(grunt) {
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
-      server: ['copy:styles'],
-      test: ['copy:styles'],
-      dist: ['copy:styles', 'imagemin', 'svgmin']
+      server: ['compass:server'],
+      test: ['compass:test'],
+      dist: ['compass', 'imagemin', 'svgmin']
     },
 
     ngconstant: {

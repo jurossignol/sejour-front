@@ -23,21 +23,13 @@
     "angular-translate-loader-partial": "~2.8.1",
     "angular-translate-storage-cookie": "~2.8.1",
     "angular-ui-router": "~0.2.15",
-    "bootstrap": "~3.3.6",
-    "font-awesome": "fontawesome#~4.5.0"
+    "bootstrap-sass": "bootstrap-sass-official#~3.3.6",
+    "font-awesome-sass": "~4.4.0"
   },
   "overrides": {
-    "bootstrap": {
+    "font-awesome-sass": {
       "main": [
-        "dist/js/bootstrap.js",
-        "dist/css/bootstrap.css",
-        "less/bootstrap.less"
-      ]
-    },
-    "font-awesome": {
-      "main": [
-        "css/font-awesome.css",
-        "less/font-awesome.less"
+        "assets/stylesheets/font-awesome.scss"
       ]
     }
   }

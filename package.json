@@ -7,6 +7,7 @@
     "grunt-angular-templates": "^0.5.9",
     "grunt-concurrent": "^2.1.0",
     "grunt-contrib-clean": "^0.7.0",
+    "grunt-contrib-compass": "^1.0.4",
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-connect": "^0.11.2",
     "grunt-contrib-copy": "^0.8.2",
@@ -32,5 +33,12 @@
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
     "time-grunt": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "grunt test",
+    "start": "grunt serve:dist"
   }
 }
