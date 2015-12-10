@@ -5,6 +5,7 @@
     "autoprefixer": "^6.1.2",
     "grunt": "^0.4.5",
     "grunt-angular-templates": "^0.5.9",
+    "grunt-browser-sync": "^2.2.0",
     "grunt-concurrent": "^2.1.0",
     "grunt-contrib-clean": "^0.7.0",
     "grunt-contrib-compass": "^1.0.4",

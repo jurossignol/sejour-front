@@ -20,6 +20,6 @@ RUN bower install --config.interactive=false --allow-root
 # Make everything available for start
 COPY . /app
 
-EXPOSE 9000
+EXPOSE 3000 3001
 
 CMD ["grunt", "serve:dist"]
