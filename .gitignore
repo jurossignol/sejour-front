@@ -3,3 +3,7 @@
 /.tmp
 /.sass-cache
 /bower_components
+/coverage
+/test_results
+
+.DS_Store

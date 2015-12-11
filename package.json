@@ -31,7 +31,10 @@
     "grunt-wiredep": "^2.0.0",
     "jit-grunt": "^0.9.1",
     "jshint-stylish": "^2.1.0",
+    "karma-coverage": "^0.5.3",
+    "karma-html-reporter": "^0.2.7",
     "karma-jasmine": "^0.3.6",
+    "karma-ng-html2js-preprocessor": "^0.2.0",
     "karma-phantomjs-launcher": "^0.2.1",
     "time-grunt": "^1.2.2"
   },

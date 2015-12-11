@@ -32,5 +32,8 @@
         "assets/stylesheets/font-awesome.scss"
       ]
     }
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.8"
   }
 }

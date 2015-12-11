@@ -2,23 +2,23 @@
 
 angular.module('sejourFrontApp')
 	.directive('boxMenu', function() {
-	    return {
-	        restrict: 'E',
-	        scope: {
-	        	boxtitle: '@',
+		return {
+			restrict: 'E',
+			scope: {
+				boxtitle: '@',
 				boxlogo: '@',
 				boxbadge: '@',
 				disabled: '@'
-	        },
-	        templateUrl: 'scripts/components/menu/boxMenu.html'
-	    };
+			},
+			templateUrl: 'scripts/components/menu/boxMenu.html'
+		};
 	})
-    .directive('stepsMenu', function() {
-        return {
-            restrict: 'E',
-            scope: {
-            	stepnumber: '@'
-            },
-            templateUrl: 'scripts/components/menu/stepsMenu.html'
-        };
-    });
+	.directive('stepsMenu', function() {
+		return {
+			restrict: 'E',
+			scope: {
+				stepnumber: '@'
+			},
+			templateUrl: 'scripts/components/menu/stepsMenu.html'
+		};
+});

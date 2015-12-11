@@ -11,12 +11,7 @@ angular.module('sejourFrontApp')
         };
 
         $scope.choose = function(userType) {
-        	$scope.userType = userType;
         	$rootScope.userType = userType;
         	$state.go('home');
         };
-        
-        $rootScope.$watch('userType', function(newValue) {
-        	$scope.userType = newValue;
-        });
     });

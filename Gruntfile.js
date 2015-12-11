@@ -12,7 +12,7 @@ module.exports = function(grunt) {
     ngconstant: 'grunt-ng-constant'
   });
 
-  var serveStatic = require('serve-static');
+  // var serveStatic = require('serve-static');
 
   // Configurable paths for the application
   var bowerJson = require('./bower.json');
@@ -69,6 +69,7 @@ module.exports = function(grunt) {
       },
       test: {
         options: {
+          open: false,
           server: ['./app', './.tmp', '.', 'test']
         }
       }
@@ -175,7 +176,7 @@ module.exports = function(grunt) {
       },
       test: {
         devDependencies: true,
-        src: '<%= karma.unit.configFile %>',
+        src: '<%= karma.options.configFile %>',
         ignorePath:  /\.\.\//,
         exclude: [
           /angular-i18n/  // localizations are loaded dynamically
@@ -422,9 +423,17 @@ module.exports = function(grunt) {
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
-      server: ['compass:server'],
-      test: ['compass:test'],
-      dist: ['compass', 'imagemin', 'svgmin']
+      server: [
+        'compass:server'
+      ],
+      test: [
+        'compass'
+      ],
+      dist: [
+        'compass:dist', 
+        'imagemin', 
+        'svgmin'
+      ]
     },
 
     ngconstant: {
@@ -492,15 +501,17 @@ module.exports = function(grunt) {
     grunt.task.run(['serve:' + target]);
   });
 
-  grunt.registerTask('test', [
-    'clean:server',
-    'wiredep',
-    'ngconstant:dev',
-    'concurrent:test',
-    'postcss',
-    'browserSync:test',
-    'karma'
-  ]);
+  grunt.registerTask('test', function (target) {
+    target = target === undefined ? 'unit' : target;
+    grunt.task.run([
+      'clean:server',
+      'wiredep:test',
+      'ngconstant:dev',
+      // 'concurrent:test',
+      // 'postcss',
+      'karma:' + target
+    ]);
+  });
 
   grunt.registerTask('build', [
     'clean:dist',
