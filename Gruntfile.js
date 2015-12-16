@@ -134,7 +134,8 @@ module.exports = function(grunt) {
           ]
         }]
       },
-      server: '.tmp'
+      server: '.tmp',
+      test: ['.tmp', 'coverage', 'test_results']
     },
 
     // Add vendor prefixed styles
@@ -341,6 +342,12 @@ module.exports = function(grunt) {
       }
     },
 
+    'json-minify': {
+      build: {
+        files: '<%= yeoman.dist %>/i18n/**/*.json'
+      }
+    },
+
     ngtemplates: {
       dist: {
         options: {
@@ -349,7 +356,7 @@ module.exports = function(grunt) {
           usemin: 'scripts/scripts.js'
         },
         cwd: '<%= yeoman.app %>',
-        src: 'views/**/*.html',
+        src: ['scripts/views/**/*.html', 'scripts/components/**/*.html'],
         dest: '.tmp/templateCache.js'
       }
     },
@@ -504,11 +511,11 @@ module.exports = function(grunt) {
   grunt.registerTask('test', function (target) {
     target = target === undefined ? 'unit' : target;
     grunt.task.run([
-      'clean:server',
+      'clean:test',
       'wiredep:test',
       'ngconstant:dev',
-      // 'concurrent:test',
-      // 'postcss',
+      'concurrent:test',
+      'postcss',
       'karma:' + target
     ]);
   });
@@ -525,6 +532,7 @@ module.exports = function(grunt) {
     'ngAnnotate',
     'copy:dist',
     'cdnify',
+    'json-minify',
     'cssmin',
     'uglify',
     'filerev',
