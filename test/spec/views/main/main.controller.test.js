@@ -8,15 +8,15 @@ describe('Controller : MainController', function () {
 
 		module('sejourFrontApp');
 
-		inject(function ($controller, $injector) {
-			$rootScope = $injector.get('$rootScope');
+		inject(function ($controller, _$rootScope_) {
+			$rootScope = _$rootScope_;
 			$rootScope.userType = 'individual';
 			$scope = $rootScope.$new();
-		    $controller('MainController', { $rootScope: $rootScope, $scope: $scope });
+		    $controller('MainController', { $scope: $scope });
 		});
 	});
 
-	it('should save user type when choose new user type', function () {
+	it('Should save user type when choose new user type', function () {
 	    $scope.choose('company');
 	    expect($rootScope.userType).toEqual('company');
 	});

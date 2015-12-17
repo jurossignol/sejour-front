@@ -11,7 +11,7 @@ angular.module('sejourFrontApp', ['ui.router',
 									'pascalprecht.translate',
 									'tmh.dynamicLocale'])
 
-	.run(function($rootScope, $state, $translate, $window, Language, ENV, VERSION){
+	.run(function($rootScope, $state, $translate, $window, LanguageService, ENV, VERSION){
 		$rootScope.ENV = ENV;
 		$rootScope.VERSION = VERSION;
 
@@ -24,7 +24,7 @@ angular.module('sejourFrontApp', ['ui.router',
             // }
             
             // Update the language
-            Language.getCurrent().then(function (language) {
+            LanguageService.getCurrent().then(function (language) {
                 $translate.use(language);
             });
             

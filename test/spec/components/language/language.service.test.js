@@ -1,35 +1,37 @@
 'use strict';
 
-describe('Service : Language', function () {
+describe('Service : LanguageService', function () {
 
-	var $translate, Language;
+	var $translate, LanguageService;
 
 	beforeEach(function () {
 
 		module('sejourFrontApp');
 
-		inject(function ($injector) {
-			$translate = $injector.get('$translate');
-			Language = $injector.get('Language');
+		inject(function (_$translate_, _LanguageService_) {
+			$translate = _$translate_;
+			LanguageService = _LanguageService_;
 		});
 	});
 
-	it('should get current language', function () {
+	it('Should get current language', function () {
 		$translate.storage().set('NG_TRANSLATE_LANG_KEY', 'en');
-		var promise = Language.getCurrent().then(function (language) {
+		
+		LanguageService.getCurrent().then(function (language) {
 			expect(language).toEqual('en');
 		});
 	});
 
-	it('should default current language when undefined', function () {
+	it('Should get french language when no current language defined', function () {
 		$translate.storage().set('NG_TRANSLATE_LANG_KEY', undefined);
-		var promise = Language.getCurrent().then(function (language) {
+		
+		LanguageService.getCurrent().then(function (language) {
 			expect(language).toEqual('fr');
 		});
 	});
 
-	it('should get all languages', function () {
-	    Language.getAll().then(function (languages) {
+	it('Should get all languages', function () {
+	    LanguageService.getAll().then(function (languages) {
 	    	expect(languages.length).toEqual(2);
 	    	expect(languages).toContain('en');
 	    	expect(languages).toContain('fr');

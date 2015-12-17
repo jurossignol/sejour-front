@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sejourFrontApp')
-    .factory('Language', function ($q, $http, $translate, LANGUAGES) {
+    .factory('LanguageService', function ($q, $http, $translate, LANGUAGES) {
         return {
             getCurrent: function () {
                 var deferred = $q.defer();

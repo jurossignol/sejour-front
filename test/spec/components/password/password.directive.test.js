@@ -2,18 +2,18 @@
 
 describe('Directive : passwordStrengthBar', function () {
 
-	var $scope, elm, $httpBackend;
+	var $httpBackend, elm, $scope;
 
 	beforeEach(function () {
 
 		module('sejourFrontApp');
 
-		inject(function ($injector, $rootScope, $compile) {
+		inject(function (_$httpBackend_, $compile, $rootScope) {
 	        $scope = $rootScope.$new();
 	        elm = angular.element('<password-strength-bar password-to-check="password"></password-strength-bar>');
 	        $compile(elm)($scope);
 
-	        $httpBackend = $injector.get('$httpBackend');
+	        $httpBackend = _$httpBackend_;
         	$httpBackend.whenGET(new RegExp('i18n\/.*\/global.json')).respond({});
         	$httpBackend.whenGET(new RegExp('i18n\/.*\/main.json')).respond({});
         	$httpBackend.whenGET('scripts/components/navbar/navbar.html').respond({});
@@ -27,22 +27,23 @@ describe('Directive : passwordStrengthBar', function () {
         $httpBackend.verifyNoOutstandingRequest();
     });
 
-	it("Should display the password strength bar", function () {
+	it('Should display the password strength bar', function () {
 		expect(elm.hasClass('ng-hide')).toBeFalsy();
         expect(elm.find('ul').length).toEqual(1);
         expect(elm.find('li').length).toEqual(5);
     });
 
-	it("Should hide the password strength bar", function () {
+	it('Should hide the password strength bar', function () {
 		$scope.$apply(function () {
-            $scope.password = "";
+            $scope.password = '';
         });
+        
 		expect(elm.hasClass('ng-hide')).toBeTruthy();
     });
 
-    it("Should change the first point of the strength bar", function () {
+    it('Should change the first point of the strength bar', function () {
         $scope.$apply(function () {
-            $scope.password = "smallest"; // that should trigger the first point
+            $scope.password = 'smallest'; // that should trigger the first point
         });
 
         var firstpointStyle = elm.find('ul').children('li')[0].getAttribute('style');
@@ -52,9 +53,9 @@ describe('Directive : passwordStrengthBar', function () {
         expect(secondpointStyle).toContain('background-color: rgb(221, 221, 221)');
     });
 
-    it("Should change the first 2 points of the strength bar", function () {
+    it('Should change the first 2 points of the strength bar', function () {
         $scope.$apply(function () {
-            $scope.password = "morethan5chars"; // that should trigger the 2 first points
+            $scope.password = 'morethan5chars'; // that should trigger the 2 first points
         });
 
         var firstpointStyle = elm.find('ul').children('li')[0].getAttribute('style');
@@ -67,9 +68,9 @@ describe('Directive : passwordStrengthBar', function () {
         expect(thirdpointStyle).toContain('background-color: rgb(221, 221, 221)');
     });
 
-    it("Should change the first 4 points of the strength bar", function () {
+    it('Should change the first 4 points of the strength bar', function () {
         $scope.$apply(function () {
-            $scope.password = "mo5ch$=!"; // that should trigger the 3 first points
+            $scope.password = 'mo5ch$=!'; // that should trigger the 3 first points
         });
 
         var firstpointStyle = elm.find('ul').children('li')[0].getAttribute('style');
@@ -88,9 +89,9 @@ describe('Directive : passwordStrengthBar', function () {
         expect(fifthpointStyle).toContain('background-color: rgb(221, 221, 221)');
     });
 
-    it("Should change the first 5 points of the strength bar", function () {
+    it('Should change the first 5 points of the strength bar', function () {
         $scope.$apply(function () {
-            $scope.password = "mo5ch$=!Long"; // that should trigger the 3 first points
+            $scope.password = 'mo5ch$=!Long'; // that should trigger the 3 first points
         });
 
         var firstpointStyle = elm.find('ul').children('li')[0].getAttribute('style');

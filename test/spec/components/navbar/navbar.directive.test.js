@@ -2,21 +2,21 @@
 
 describe('Directive : navbar', function () {
 
-	var $scope, elm, $httpBackend, $translate, $q;
+	var $httpBackend, elm, $scope, $translate;
 
 	beforeEach(function () {
 		// load the controller's module
 		module('sejourFrontApp');
 
 		// Initialize the controller and a mock scope
-		inject(function ($injector, $rootScope, $compile) {
+		inject(function (_$httpBackend_, $compile, $rootScope, _$translate_) {
 	        $scope = $rootScope.$new();
 	        elm = angular.element('<li active-menu="fr"></li>');
 	        $compile(elm)($scope);
 
-	        $translate = $injector.get('$translate');
+	        $translate = _$translate_;
 
-	        $httpBackend = $injector.get('$httpBackend');
+	        $httpBackend = _$httpBackend_;
         	$httpBackend.whenGET(new RegExp('i18n\/.*\/global.json')).respond({});
         	$httpBackend.whenGET(new RegExp('i18n\/.*\/main.json')).respond({});
         	$httpBackend.whenGET('scripts/components/navbar/navbar.html').respond({});
@@ -32,17 +32,19 @@ describe('Directive : navbar', function () {
 
     describe('activeMenu', function () {
 
-    	it("Should be active when language is in use", function () {
+    	it('Should be active when language is in use', function () {
     		$scope.$apply(function () {
     			$translate.use('fr');
     		});
+
     		expect(elm.hasClass('active')).toBeTruthy();
 	    });
 
-    	it("Should not be active when language is not in use", function () {
+    	it('Should not be active when language is not in use', function () {
     		$scope.$apply(function () {
     			$translate.use('en');
     		});
+            
     		expect(elm.hasClass('active')).toBeFalsy();
 	    });
     });

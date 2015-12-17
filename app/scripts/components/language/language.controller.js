@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sejourFrontApp')
-    .controller('LanguageController', function ($scope, $translate, Language, tmhDynamicLocale) {
+    .controller('LanguageController', function ($scope, $translate, LanguageService, tmhDynamicLocale) {
     	$scope.currentLanguage = tmhDynamicLocale.get();
     	
         $scope.changeLanguage = function (languageKey) {
@@ -10,11 +10,11 @@ angular.module('sejourFrontApp')
             $scope.currentLanguage = tmhDynamicLocale.get();
         };
 
-        Language.getAll().then(function (languages) {
+        LanguageService.getAll().then(function (languages) {
             $scope.languages = languages;
         });
     })
-    .filter('findLanguageFromKey', function () {
+    .filter('findLanguageFromKeyFilter', function () {
         return function (lang) {
             return {
                 'ca': 'Català',

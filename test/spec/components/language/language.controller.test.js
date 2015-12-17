@@ -8,25 +8,20 @@ describe('Controller : LanguageController', function () {
 
 		module('sejourFrontApp');
 
-		inject(function ($controller, $q, $injector, $rootScope, $translate, Language, tmhDynamicLocale) {
+		inject(function ($controller, _$httpBackend_, $q, $rootScope, $translate, LanguageService, tmhDynamicLocale) {
 
 			$scope = $rootScope.$new();
 			
 			var deferred = $q.defer();
 	        deferred.resolve(['en', 'fr']);
-			spyOn(Language, 'getAll').and.returnValue(deferred.promise);
+			spyOn(LanguageService, 'getAll').and.returnValue(deferred.promise);
 
 			$translate.use('fr');
 			tmhDynamicLocale.set('fr');
 
-		    $controller('LanguageController', {
-		    	$scope: $scope,
-		    	$translate: $translate, 
-		    	Language: Language, 
-		    	tmhDynamicLocale: tmhDynamicLocale
-		    });
+		    $controller('LanguageController', { $scope: $scope });
 
-			$httpBackend = $injector.get('$httpBackend');
+			$httpBackend = _$httpBackend_;
         	$httpBackend.whenGET(new RegExp('i18n\/.*\/global.json')).respond({});
         	$httpBackend.whenGET(new RegExp('i18n\/.*\/main.json')).respond({});
         	$httpBackend.whenGET('scripts/components/navbar/navbar.html').respond({});
@@ -40,7 +35,7 @@ describe('Controller : LanguageController', function () {
         $httpBackend.verifyNoOutstandingRequest();
     });
 
-	it('should be french language by default', function () {
+	it('Should be french language by default', function () {
 		$scope.$apply();
 
 	    expect($scope.currentLanguage).toEqual('fr');
@@ -49,28 +44,28 @@ describe('Controller : LanguageController', function () {
 	    expect($scope.languages).toContain('fr');
 	});
 
-	it('should be english language when change language to english', function () {
+	it('Should be english language when change language to english', function () {
 		$scope.changeLanguage('en');
 
 	    expect($scope.currentLanguage).toEqual('en');
 	});
 });
 
-describe('Filter : findLanguageFromKey', function () {
+describe('Filter : findLanguageFromKeyFilter', function () {
 
-	var $filter;
+	var findLanguageFromKeyFilter;
 
 	beforeEach(function () {
 		// load the controller's module
 		module('sejourFrontApp');
 
-		inject(function ($injector) {
-			$filter = $injector.get('$filter');
+		inject(function ($filter) {
+			findLanguageFromKeyFilter = $filter('findLanguageFromKeyFilter');
 		});
 	});
 
-	it('should find language from key', function() {
-		expect($filter('findLanguageFromKey')('fr')).toEqual('Français');
-		expect($filter('findLanguageFromKey')('en')).toEqual('English');
+	it('Should get language label from key', function() {
+		expect(findLanguageFromKeyFilter('fr')).toEqual('Français');
+		expect(findLanguageFromKeyFilter('en')).toEqual('English');
 	});
 });

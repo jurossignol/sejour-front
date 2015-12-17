@@ -1,17 +1,21 @@
 'use strict';
 
 angular.module('sejourFrontApp')
-    .controller('NavbarController', function ($rootScope, $scope, $state, ENV) {
+    .controller('NavbarController', function ($rootScope, $scope, $state, AuthService, ENV) {
         
         $scope.$state = $state;
         $scope.inProduction = ENV === 'prod';
 
         $scope.isAuthenticated = function () {
-            return false;
+            return $rootScope.account !== undefined;
         };
 
         $scope.choose = function(userType) {
         	$rootScope.userType = userType;
         	$state.go('home');
+        };
+
+        $scope.logout = function () {
+            AuthService.logout();
         };
     });
