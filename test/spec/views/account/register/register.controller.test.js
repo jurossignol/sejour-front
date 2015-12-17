@@ -19,10 +19,6 @@ describe('Controller : RegisterController', function () {
 		});
 	});
 
-	it('Should have user type predefined when exists', function () {
-		expect($scope.registerAccount.type).toEqual('individual');
-	});
-
 	it('Should not match when different password', function () {
 		$scope.registerAccount.password = 'myPassword';
 		$scope.confirmPassword = 'otherPassword';
@@ -30,6 +26,7 @@ describe('Controller : RegisterController', function () {
 		$scope.register();
 		
 		expect($scope.doNotMatch).toEqual('ERROR');
+		expect($scope.registerAccount.type).toBeUndefined();
 	});
 
 	it('Should register when correct password', function () {
@@ -40,5 +37,6 @@ describe('Controller : RegisterController', function () {
 		
 		expect($scope.doNotMatch).toBeNull();
 		expect($scope.registerAccount.langKey).toEqual('fr');
+		expect($scope.registerAccount.type).toEqual('individual');
 	});
 });

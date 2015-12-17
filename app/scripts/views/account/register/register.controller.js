@@ -7,8 +7,6 @@ angular.module('sejourFrontApp')
         $scope.doNotMatch = null;
         $scope.registerAccount = {};
         $timeout(function (){angular.element('[ng-model="registerAccount.email"]').focus();});
-        
-        $scope.registerAccount.type = $rootScope.userType;
 
         $scope.register = function () {
             if ($scope.registerAccount.password !== $scope.confirmPassword) {
@@ -19,6 +17,7 @@ angular.module('sejourFrontApp')
                 $scope.error = null;
                 $scope.errorEmailExists = null;
 
+                $scope.registerAccount.type = $rootScope.userType;
                 // Auth.createAccount($scope.registerAccount).then(function () {
                 //     $scope.success = 'OK';
                 // }).catch(function (response) {

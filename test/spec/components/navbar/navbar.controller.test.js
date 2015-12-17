@@ -2,18 +2,15 @@
 
 describe('Controller : NavbarController', function () {
 
-	var $rootScope, $scope, $state;
+	var $rootScope, $scope;
 
 	beforeEach(function () {
-		// load the controller's module
 		module('sejourFrontApp');
 
-		// Initialize the controller and a mock scope
-		inject(function ($controller, _$rootScope_, _$state_) {
+		inject(function ($controller, _$rootScope_) {
 			$rootScope = _$rootScope_;
 			$rootScope.userType = 'individual';
 			$scope = $rootScope.$new();
-			$state = _$state_;
 		    
 		    $controller('NavbarController', { $scope: $scope, ENV: 'prod' });
 		});
@@ -27,12 +24,9 @@ describe('Controller : NavbarController', function () {
 	    expect($scope.isAuthenticated()).toBeFalsy();
 	});
 
-	it('Should save user type and go to home when choose new user type', function () {
-		spyOn($state, 'go');
-	    
+	it('Should save user type when choose new user type', function () {
 	    $scope.choose('company');
 	    
 	    expect($rootScope.userType).toEqual('company');
-	    expect($state.go).toHaveBeenCalledWith('home');
 	});
 });

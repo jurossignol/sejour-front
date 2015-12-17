@@ -12,7 +12,6 @@ angular.module('sejourFrontApp')
 
         $scope.choose = function(userType) {
         	$rootScope.userType = userType;
-        	$state.go('home');
         };
 
         $scope.logout = function () {
