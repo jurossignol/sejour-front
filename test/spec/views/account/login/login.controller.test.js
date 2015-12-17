@@ -19,6 +19,7 @@ describe('Controller : LoginController', function () {
 			AuthService = _AuthService_;
 
 			spyOn($state, 'go').and.callFake(function () {});
+			spyOn(AuthService, 'login').and.returnValue($q.when({}));
 
 			$controller('LoginController', { $scope: $scope });
 
@@ -41,7 +42,6 @@ describe('Controller : LoginController', function () {
 	});
 
 	it('Should redirect to state returned when login success', function () {
-		spyOn(AuthService, 'login').and.returnValue($q.when({}));
 		$rootScope.returnToState = { name: 'myState' };
 
 		$scope.$apply(function () {
@@ -54,7 +54,6 @@ describe('Controller : LoginController', function () {
 	});
 
 	it('Should redirect to home state when login success with previous state activate', function () {
-		spyOn(AuthService, 'login').and.returnValue($q.when({}));
 		$rootScope.returnToState = null;
 		$rootScope.previousStateName = 'activate';
 
@@ -68,7 +67,6 @@ describe('Controller : LoginController', function () {
 	});
 
 	it('Should redirect to home state when login success with previous state register', function () {
-		spyOn(AuthService, 'login').and.returnValue($q.when({}));
 		$rootScope.returnToState = null;
 		$rootScope.previousStateName = 'register';
 
@@ -82,7 +80,6 @@ describe('Controller : LoginController', function () {
 	});
 
 	it('Should redirect to home state when login success without previous state', function () {
-		spyOn(AuthService, 'login').and.returnValue($q.when({}));
 		$rootScope.returnToState = null;
 		$rootScope.previousStateName = null;
 
@@ -96,13 +93,12 @@ describe('Controller : LoginController', function () {
 	});
 
 	it('Should redirect to previous state when login success', function () {
-		spyOn(AuthService, 'login').and.returnValue($q.when({}));
 		spyOn($state, 'get').and.returnValue('myState');
+		$rootScope.returnToState = null;
+		$rootScope.previousStateName = 'myState';
+		$rootScope.previousStateParams = {};
+		
 		$scope.$apply(function () {
-			$rootScope.returnToState = null;
-			$rootScope.previousStateName = 'myState';
-			$rootScope.previousStateParams = {};
-
 			$scope.login(event);
 		});
 
@@ -112,7 +108,7 @@ describe('Controller : LoginController', function () {
 	});
 
 	it('Should get error when login failed', function () {
-		spyOn(AuthService, 'login').and.returnValue($q.reject('fail'));
+		AuthService.login.and.returnValue($q.reject('fail'));
 		
 		$scope.$apply(function () {
 			$scope.login(event);

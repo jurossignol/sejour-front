@@ -5,16 +5,16 @@
     <br><br>
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
-            <div class="alert alert-success" ng-show="success" translate="account.messages.success.register">
+            <div class="alert alert-success" ng-show="alert.success" translate="account.messages.success.register">
                 <strong>Registration saved!</strong> Please check your email for confirmation.
             </div>
-            <div class="alert alert-danger" ng-show="error" translate="account.messages.error.register">
+            <div class="alert alert-danger" ng-show="alert.error" translate="account.messages.error.register">
                 <strong>Registration failed!</strong> Please try again later.
             </div>
-            <div class="alert alert-danger" ng-show="errorEmailExists" translate="account.messages.error.emailexists">
+            <div class="alert alert-danger" ng-show="alert.errorEmailExists" translate="account.messages.error.emailexists">
                 <strong>E-mail is already in use!</strong> Please choose another one.
             </div>
-            <div class="alert alert-danger" ng-show="doNotMatch" translate="account.messages.error.passworddontmatch">
+            <div class="alert alert-danger" ng-show="alert.doNotMatch" translate="account.messages.error.passworddontmatch">
                 The password and its confirmation do not match!
             </div>
         </div>

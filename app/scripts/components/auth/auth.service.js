@@ -27,6 +27,10 @@ angular.module('sejourFrontApp')
 
             logout: function () {
             	$rootScope.account = undefined;
+            },
+
+            createAccount: function () {
+                return $q.defer().promise;
             }
         };
     });
