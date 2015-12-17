@@ -1,13 +1,9 @@
 'use strict';
 
-/**
-*  Module
-*
-* Description
-*/
 angular.module('sejourFrontApp', ['ui.router', 
 									'LocalStorageModule',
 									'ngCookies',
+                                    'ngCacheBuster',
 									'pascalprecht.translate',
 									'tmh.dynamicLocale'])
 
@@ -49,14 +45,14 @@ angular.module('sejourFrontApp', ['ui.router',
         });
 	})
 
-	.config(function ($httpProvider, $urlRouterProvider, $stateProvider, $translateProvider, tmhDynamicLocaleProvider) {
+	.config(function ($httpProvider, $urlRouterProvider, $stateProvider, $translateProvider, tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider) {
 
-        //enable CSRF
+        // Enable CSRF
         $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN';
         $httpProvider.defaults.xsrfHeaderName = 'X-CSRF-TOKEN';
 
-        //Cache everything except rest api requests
-        // httpRequestInterceptorCacheBusterProvider.setMatchlist([/.*api.*/, /.*protected.*/], true);
+        // Cache everything except rest api requests
+        httpRequestInterceptorCacheBusterProvider.setMatchlist([/.*api.*/, /.*protected.*/], true);
 
         $urlRouterProvider.otherwise('/');
 

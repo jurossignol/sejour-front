@@ -19,6 +19,7 @@ module.exports = function(config) {
       // bower:js
       'bower_components/jquery/dist/jquery.js',
       'bower_components/angular/angular.js',
+      'bower_components/angular-cache-buster/angular-cache-buster.js',
       'bower_components/angular-cookies/angular-cookies.js',
       'bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js',
       'bower_components/angular-local-storage/dist/angular-local-storage.js',
