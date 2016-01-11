@@ -6,4 +6,5 @@
 /coverage
 /test_results
 
+*.sublime-*
 .DS_Store
