@@ -3,7 +3,7 @@
 angular.module('sejourFrontApp')
     .factory('LanguageService', function ($q, $http, $translate, LANGUAGES) {
         return {
-            getCurrent: function () {
+            getCurrent () {
                 var deferred = $q.defer();
                 var language = $translate.storage().get('NG_TRANSLATE_LANG_KEY');
 
@@ -14,7 +14,7 @@ angular.module('sejourFrontApp')
                 deferred.resolve(language);
                 return deferred.promise;
             },
-            getAll: function () {
+            getAll () {
                 var deferred = $q.defer();
                 deferred.resolve(LANGUAGES);
                 return deferred.promise;

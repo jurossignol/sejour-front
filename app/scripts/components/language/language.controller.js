@@ -10,9 +10,7 @@ angular.module('sejourFrontApp')
             $scope.currentLanguage = tmhDynamicLocale.get();
         };
 
-        LanguageService.getAll().then(function (languages) {
-            $scope.languages = languages;
-        });
+        LanguageService.getAll().then(languages => $scope.languages = languages);
     })
     .filter('findLanguageFromKeyFilter', function () {
         return function (lang) {

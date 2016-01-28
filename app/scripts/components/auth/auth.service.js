@@ -3,7 +3,7 @@
 angular.module('sejourFrontApp')
     .factory('AuthService', function Auth($rootScope, $q, $translate) {
         return {
-            login: function (credentials) {
+            login (credentials) {
                 
                 var deferred = $q.defer();
 
@@ -25,11 +25,11 @@ angular.module('sejourFrontApp')
                 return deferred.promise;
             },
 
-            logout: function () {
+            logout () {
             	$rootScope.account = undefined;
             },
 
-            createAccount: function () {
+            createAccount () {
                 return $q.defer().promise;
             }
         };

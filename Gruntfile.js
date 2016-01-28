@@ -241,6 +241,22 @@ module.exports = function(grunt) {
       }
     },
 
+    // Transpile from ES6 to ES5
+    babel: {
+      options: {
+        sourceMap: false // set to true if need debug tools
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '.tmp',
+          src: ['concat/scripts/scripts.js'],
+          dest: '.tmp',
+          ext:'.js'
+        }]
+      }
+    },
+
     // Reads HTML for usemin blocks to enable smart builds that automatically
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
@@ -538,6 +554,7 @@ module.exports = function(grunt) {
     'cdnify',
     'json-minify',
     'cssmin',
+    'babel:dist',
     'uglify',
     'filerev',
     'usemin',
