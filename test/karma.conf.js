@@ -43,13 +43,26 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-      './app/**/*.js': ['coverage'],
-      './app/scripts/components/**/*.html': ['ng-html2js']
+      './app/**/*.js': ['coverage','babel'],
+      './app/scripts/components/**/*.html': ['ng-html2js'],
+      './test/**/*.js': ['babel']
     },
 
     ngHtml2JsPreprocessor: {
       stripPrefix: 'app/',
       moduleName: 'htmlTemplates'
+    },
+
+    babelPreprocessor: {
+      options: {
+        sourceMap: 'inline'
+      },
+      filename: function (file) {
+        return file.originalPath.replace(/\.js$/, '.es5.js');
+      },
+      sourceFileName: function (file) {
+        return file.originalPath;
+      }
     },
 
     reporters: ['progress', 'html', 'coverage'],
