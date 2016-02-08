@@ -9,7 +9,8 @@ module.exports = function(grunt) {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
     cdnify: 'grunt-google-cdn',
-    ngconstant: 'grunt-ng-constant'
+    ngconstant: 'grunt-ng-constant',
+    protractor: 'grunt-protractor-runner'
   });
 
   // var serveStatic = require('serve-static');
@@ -182,7 +183,7 @@ module.exports = function(grunt) {
         exclude: [
           /angular-i18n/  // localizations are loaded dynamically
         ],
-        fileTypes:{
+        fileTypes: {
           js: {
             block: /(([\s\t]*)\/{2}\s*?bower:\s*?(\S*))(\n|\r|.)*?(\/{2}\s*endbower)/gi,
               detect: {
@@ -503,6 +504,31 @@ module.exports = function(grunt) {
         singleRun: false,
         autoWatch: true
       }
+    },
+
+    // Acceptance test
+    protractor: {
+      options: {
+        configFile: "node_modules/protractor/example/conf.js", // Default config file 
+        keepAlive: true, // If false, the grunt process stops when the test fails. 
+        noColor: false, // If true, protractor will not use colors in its output. 
+        args: {
+          // Arguments passed to the command 
+        }
+      },
+      target: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too. 
+        options: {
+          configFile: "protractor.conf.js",
+          //args: {}
+        }
+      },
+    },
+
+    protractor_webdriver: {
+      target: {
+        options: {
+        },
+      },
     }
   });
 
@@ -539,6 +565,12 @@ module.exports = function(grunt) {
       'karma:' + target
     ]);
   });
+
+  grunt.registerTask('acceptance-test', [
+    'connect:dist',
+    'protractor_webdriver',
+    'protractor'
+  ]);
 
   grunt.registerTask('build', [
     'clean:dist',
