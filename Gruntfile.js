@@ -57,8 +57,9 @@ module.exports = function(grunt) {
         bsFiles: {
           src : [
             '<%= yeoman.app %>/**/*.html',
-            '<%= yeoman.app %>/**/*.json',
+            '<%= yeoman.app %>/scripts/**/*.html',
             '<%= yeoman.app %>/scripts/**/*.js',
+            '<%= yeoman.app %>/i18n/**/*.json',
             '<%= yeoman.app %>/assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
             '.tmp/**/*.{css,js}'
           ]
