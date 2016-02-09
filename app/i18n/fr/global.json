@@ -1,17 +1,10 @@
 {
     "global": {
-        "title": "Portail ANEF",
-        "page.title": "portail des étrangers de France",
+        "title": "Administration numérique pour les étrangers en France",
+        "page.title": "Administration numérique pour les étrangers en France",
         "browsehappy": "Vous utilisez un <strong>ancien</strong> navigateur. Veuillez <a href=\"http://browsehappy.com/?locale=fr\">mettre à jour votre navigateur</a> pour une meilleure expérience.",
         "menu": {
             "home": "Accueil",
-            "entities": {
-                "main": "Entités",
-                "demande": "Demande",
-                "identity": "Identity",
-                "address": "Address",
-                "project": "Project"
-            },
             "account": {
                 "main": "Compte",
                 "personalAccount": "Mon compte personnel",
@@ -21,6 +14,11 @@
                 "register": "Créer un compte"
             },
             "language": "Langue"
+        },
+        "footer": {
+            "title": "Administration numérique pour les étrangers en France",
+            "about": "À propos",
+            "legalnotice": "Mentions légale"
         }
     }
 }

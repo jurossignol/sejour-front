@@ -1,0 +1,141 @@
+$bgDefault      : #272727;
+$bgHighlight    : #000000;
+$colDefault     : #cecece;
+$colHighlight   : #ffffff;
+$dropDown       : true;
+.navbar-default {
+    background-color: $bgDefault;
+    border-color: $bgHighlight;
+    .navbar-brand {
+        color: $colDefault;
+        &:hover, &:focus {
+            color: $colHighlight;
+        }
+    }
+    .navbar-text {
+        color: $colDefault;
+    }
+    .navbar-nav {
+        > li {
+            > a {
+                padding-left: 10px;
+                padding-right: 10px;
+                color: $colDefault;
+                &:hover,  &:focus {
+                    color: $colHighlight;
+                }
+            }
+            @if $dropDown {
+                > .dropdown-menu {
+                    background-color: $bgDefault;
+                    > li {
+                        > a {
+                            color: $colDefault;
+                            &:hover,  &:focus {
+                                color: $colHighlight;
+                                background-color: $bgHighlight;
+                            }
+                        }
+                        > .divider {
+                            background-color: $bgHighlight;
+                        }
+                    }
+                }
+            }
+        }
+        @if $dropDown {
+            .open .dropdown-menu > .active {
+                > a, > a:hover, > a:focus {
+                    color: $colHighlight;
+                    background-color: $bgHighlight;
+                }
+            }
+        }
+        > .active {
+            > a, > a:hover, > a:focus {
+                color: $colHighlight;
+                background-color: $bgHighlight;
+            }
+        }
+        > .open {
+            > a, > a:hover, > a:focus {
+                color: $colHighlight;
+                background-color: $bgHighlight;
+            }
+        }
+    }
+    .navbar-toggle {
+        border-color: $bgHighlight;
+        &:hover, &:focus {
+            background-color: $bgHighlight;
+        }
+        .icon-bar {
+            background-color: $colDefault;
+        }
+    }
+    .navbar-collapse, .navbar-form {
+        border-color: $colDefault;
+    }
+    .navbar-link {
+        color: $colDefault;
+        &:hover {
+            color: $colHighlight;
+        }
+    }
+}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu {
+        > li > a {
+            color: $colDefault;
+            &:hover, &:focus {
+                color: $colHighlight;
+            }
+        }
+        > .active {
+            > a, > a:hover, > a:focus {
+                color: $colHighlight;
+                background-color: $bgHighlight;
+            }
+        }
+    }
+}
+
+.navbar-logo {
+    width: 80px;
+    height: 70px;
+    background-image: url("../images/logo-DGEF.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.navbar-version {
+    font-size: 10px;
+    color: #ccc
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: $bgDefault;
+    color: $colDefault;
+
+    .container {
+        padding-right: 30px;
+        padding-left: 30px;
+
+        h4 {
+            font-size: 16px;
+        }
+
+        a {
+            font-size: 12px;
+            color: $colDefault;
+            &:hover, &:focus {
+                color: $colHighlight;
+            }
+        }
+    }
+}
