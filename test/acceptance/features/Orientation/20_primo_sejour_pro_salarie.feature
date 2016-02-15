@@ -13,21 +13,21 @@ Critère d'acceptance :
 Scénario: Je suis un salarié à l'étranger avec une autorisation de travail
     Etant donné un usager non connecté
     Lorsque je suis un particulier
-    Et que je suis né le 04/08/1966
-    Et que je suis de nationalité argentine
-    Et que mon pays de résidence est Argentine
-    Et que la durée de mon séjour est de plus de 3 mois
-    Et que mon motif de séjour est l'exercice d'une activité professionnelle salariée
-    Et que j'ai une autorisation de travail
+    Et je suis né le 04/08/1966
+    Et je suis de nationalité argentine
+    Et mon pays de résidence est Argentine
+    Et la durée de mon séjour est de plus de 3 mois
+    Et mon motif de séjour est l'exercice d'une activité professionnelle salariée
+    Et j'ai une autorisation de travail
     Alors on m'oriente vers une primo demande de titre de séjour professionnel salarié
 
 Scénario: Je suis un salarié à l'étranger sans autorisation de travail
     Etant donné un usager non connecté
     Lorsque je suis un particulier
-    Et que je suis né le 04/08/1966
-    Et que je suis de nationalité argentine
-    Et que mon pays de résidence est Argentine
-    Et que la durée de mon séjour est de plus de 3 mois
-    Et que mon motif de séjour est l'exercice d'une activité professionnelle salariée
-    Et que je n'ai pas d'autorisation de travail
+    Et je suis né le 04/08/1966
+    Et je suis de nationalité argentine
+    Et mon pays de résidence est Argentine
+    Et la durée de mon séjour est de plus de 3 mois
+    Et mon motif de séjour est l'exercice d'une activité professionnelle salariée
+    Et je n'ai pas d'autorisation de travail
     Alors on m'oriente vers un site d'information relatif à l'autorisation de travail

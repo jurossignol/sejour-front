@@ -11,7 +11,8 @@ Critère d'acceptance :
 Scénario: Je suis un salarié à l'étranger avec une autorisation de travail
     Etant donné un usager non connecté
     Lorsque je suis un particulier
-    Et que je suis né le 04/08/1966
-    Et que je suis de nationalité argentine
-    Et que je modifie ma date de naissance
-    Alors on me demande qu'elle est ma date de naissance
+    Et je suis né le 04/08/1967
+    Et je suis de nationalité argentine
+    Et je corrige ma date de naissance
+    Et je suis né le 04/08/1966
+    Alors je vois que je suis né le 04/08/1966

@@ -38,9 +38,9 @@ module.exports = function JsonOutputHook() {
         mkdirp(reportDirectoryPath);
         fd = fs.openSync(reportFilePath, 'w+');
       }
-
+      
       fs.writeSync(fd, json, 'utf-8');
-      console.log('Ecriture du résultat fini avec succès : ' + reportFilePath);
+      console.log('\nEcriture du résultat fini avec succès');
       createHtmlReport(reportFilePath);
         
     });

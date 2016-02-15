@@ -10,8 +10,6 @@ exports.config = {
     'test/acceptance/features/**/*.feature'
   ],
 
-  //resultJsonOutputFile: 'test_results/acceptance_tests_report.json',
-
   cucumberOpts: {
     require: ['test/acceptance/steps/**/*.js', 'test/acceptance/hooks/**/*.js'],
     format: 'json'
