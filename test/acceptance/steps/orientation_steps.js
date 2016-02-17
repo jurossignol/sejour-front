@@ -1,3 +1,5 @@
+'use strict';
+
 var chai = require('chai');
 
 var chaiAsPromised = require('chai-as-promised');
@@ -32,11 +34,7 @@ var steps = function() {
     callback();
   });
 
-  this.When(/^je suis né le 04\/08\/1966$/, function(callback) {
-    callback();
-  });
-
-  this.When(/^je suis né le 04\/08\/1967$/, function(callback) {
+  this.When(/^je suis né le ([0-9]{2}[/]{1}[0-9]{2}[/]{1}[0-9]{4})$/, function(date, callback) {
     callback();
   });
 
@@ -53,7 +51,9 @@ var steps = function() {
   });
 
   this.When(/^le ressortissant étranger est de nationalité argentine$/, function(callback) {
-    callback();
+    setTimeout(function(){
+      callback(new Error('oh la boulette...'));
+    }, 1320);
   });
 
   this.When(/^mon pays de résidence est Argentine$/, function(callback) {

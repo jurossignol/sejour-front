@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function TakeScreenshot() {
     this.After(function (scenario, callback) {
         if (scenario.isFailed()) {

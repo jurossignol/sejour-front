@@ -46,6 +46,7 @@
     "karma-jasmine": "^0.3.6",
     "karma-ng-html2js-preprocessor": "^0.2.0",
     "karma-phantomjs-launcher": "^0.2.1",
+    "mustache": "^2.2.1",
     "protractor-cucumber-framework": "^0.3.3",
     "time-grunt": "^1.2.2"
   },

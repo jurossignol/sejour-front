@@ -12,6 +12,6 @@ exports.config = {
 
   cucumberOpts: {
     require: ['test/acceptance/steps/**/*.js', 'test/acceptance/hooks/**/*.js'],
-    format: 'json'
+    format: 'summary'
   }
 }

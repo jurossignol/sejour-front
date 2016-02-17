@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="description" content="Miminium Admin Template v.1">
+	<meta name="author" content="Isna Nur Azis">
+	<meta name="keyword" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ANEF - Living documentation</title>
+
+	<!-- start: Css -->
+	<link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css">
+
+	<!-- plugins -->
+	<link rel="stylesheet" type="text/css" href="asset/css/plugins/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="asset/css/plugins/simple-line-icons.css" />
+	<link rel="stylesheet" type="text/css" href="asset/css/plugins/animate.min.css" />
+	<link href="asset/css/style.css" rel="stylesheet">
+	<!-- end: Css -->
+
+	<link rel="shortcut icon" href="asset/img/favicon.ico">
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body id="mimin" class="dashboard">
+	<!-- start: Header -->
+	<nav class="navbar navbar-default header navbar-fixed-top">
+		<div class="col-md-12 nav-wrapper">
+			<div class="navbar-header" style="width:100%;">
+				<div class="opener-left-menu is-open">
+					<span class="top"></span>
+					<span class="middle"></span>
+					<span class="bottom"></span>
+				</div>
+				<a href="index.html" class="navbar-brand">
+					<b>ANEF</b>
+				</a>
+
+				<ul class="nav navbar-nav navbar-right user-nav">
+					<li class="dropdown avatar-dropdown">
+						<img src="asset/img/avatar.jpg" class="img-circle avatar" alt="Marianne" />
+					</li>
+					<li>&nbsp;</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- end: Header -->
+
+	<div class="container-fluid mimin-wrapper">
+
+		<!-- start:Left Menu -->
+		<div id="left-menu">
+			<div class="sub-left-menu scroll">
+				<ul class="nav nav-list">
+					<li>
+						<div class="left-bg"></div>
+					</li>
+					{{#globalReport}}
+					<li class="ripple">
+						<a href="{{id}}.html"><span class="fa-{{icon}} fa"></span> {{name}}</a>
+					</li>
+						{{#features}}
+						<li class="ripple">
+							<a href="{{id}}.html"><span class="fa-{{icon}} fa"></span> {{name}}</a>
+						</li>
+						{{/features}}
+					{{/globalReport}}
+				</ul>
+			</div>
+		</div>
+		<!-- end: Left Menu -->
+
+
+		<!-- start: content -->
+		<div id="content">
+			<div class="panel">
+				<div class="panel-body">
+					<div class="col-sm-12">
+						<h3 class="animated fadeInLeft">Living documentation</h3>
+						<p class="animated fadeInDown"><span class="fa-tag fa"></span> v0.0.1</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12" style="padding:20px;">
+				<div class="col-md-12 padding-0">
+					<div class="col-md-8 padding-0">
+						<div class="col-md-12 padding-0">
+
+							<div class="col-md-6">
+								<div class="panel box-v1">
+									<div class="panel-heading bg-white border-none">
+										<div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
+											<h4 class="text-left">Tests</h4>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6 text-right">
+											<h4>
+												<span class="icon-layers icons icon text-right"></span>
+											</h4>
+										</div>
+									</div>
+									<div class="panel-body text-center">
+										<h1 id="tests-number">0</h1>
+										<p>en échec</p>
+										<hr/>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="panel box-v1">
+									<div class="panel-heading bg-white border-none">
+										<div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
+											<h4 class="text-left">Exécution</h4>
+										</div>
+										<div class="col-md-6 col-sm-6 col-xs-6 text-right">
+											<h4>
+												<span class="icon-clock icons icon text-right"></span>
+											</h4>
+										</div>
+									</div>
+									<div class="panel-body text-center">
+										<h1 id="tests-execution">0</h1>
+										<p>secondes</p>
+										<hr/>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="col-md-12">
+							<div class="panel box-v6">
+								<div class="panel-heading">
+									<h4>{{currentFeature.name}}</h4>
+								</div>
+
+								<div class="panel-body padding-20">
+									{{#currentFeature.features}}
+									<div class="col-xs-12 padding-0">
+										<div class="col-sm-7 col-xs-12">
+											<h4><a href="{{id}}.html" class="text-{{statusStyle}}">{{name}}</a></h4>
+										</div>
+										<div class="col-sm-2 hidden-xs text-center">
+											<h4 style="margin-top: 0px"><canvas class="doughnut-{{id}}-chart" width="40px" height="40px"></canvas></h4>
+										</div>
+										<div class="col-sm-3 hidden-xs text-center">
+											<h4><i class="icon-clock icons"></i> {{time}}s</h4>
+										</div>
+									</div>
+									<div class="col-xs-12 padding-0">
+										<hr/>
+									</div>
+									{{/currentFeature.features}}
+									{{#currentFeature.description}}
+									<div class="col-md-12 col-sm-12 col-xs-12 padding-0">
+										<h5>
+											{{#currentFeature.story}}
+											<p>{{.}}</p>
+											{{/currentFeature.story}}
+										</h5>
+									</div>
+									<div class="col-md-12 col-sm-12 col-xs-12 padding-0 box-v6-content">
+										<p>Critères d'acceptance :</p>
+										<ul>
+											{{#currentFeature.criterias}}
+											<li><i class="icon-badge icons"></i> {{.}}</li>
+											{{/currentFeature.criterias}}
+										</ul>
+									</div>
+									{{/currentFeature.description}}
+								</div>
+							</div>
+						</div>
+						{{#currentFeature.description}}
+						<div class="col-md-12">
+							<div class="panel box-v6" id="accordion-scenario">
+								<div class="panel-heading">
+									<h4>Scénarios</h4>
+								</div>
+
+								<div class="panel-body padding-20">
+									{{#currentFeature.elements}}
+									<div class="col-xs-12 padding-0">
+										<div class="col-xs-12">
+
+											<div class="col-sm-10 col-xs-12 text-left padding-0">
+												<h4>
+													<a role="button" class="text-{{statusStyle}}" data-toggle="collapse" data-parent="#accordion-scenario" href="#{{type}}{{line}}" aria-expanded="true" aria-controls="{{type}}{{line}}">
+														{{name}}
+													</a>
+												</h4>
+											</div>
+											<div class="col-sm-2 hidden-xs text-right">
+												<h5><i class="icon-clock icons"></i> {{time}}s</h5>
+											</div>
+										</div>
+										<div class="col-xs-12">
+											<div id="{{type}}{{line}}" class="panel-collapse collapse {{#inError}}in{{/inError}}" role="tabpanel" aria-labelledby="{{type}}{{line}}heading">
+												<blockquote style="font-size: 15px">
+													{{#steps}}
+													<p class="text-{{result.statusStyle}}"><em>{{keyword}}{{name}}</em></p>
+													{{/steps}}
+												</blockquote>
+												{{#error_message}}
+												<div class="well text-danger">
+													{{#error_message_list}}
+													<p>{{.}}</p>
+													{{/error_message_list}}
+												</div>
+												{{/error_message}}
+											</div>
+											<hr/>
+										</div>
+									</div>
+									{{/currentFeature.elements}}
+								</div>
+							</div>
+						</div>
+						{{/currentFeature.description}}
+					</div>
+					<div class="col-md-4">
+						{{#currentFeature.wheather}}
+						<div class="col-md-12 padding-0">
+
+							<div class="panel box-v1">
+								<div class="panel-heading bg-white border-none">
+									<div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
+										<h4>Météo des tests</h4>
+									</div>
+									<div class="col-md-6 col-sm-6 col-xs-6 text-right">
+										<h4>
+									 		<span class="icon-umbrella icons icon text-right"></span>
+									 	</h4>
+									</div>
+								</div>
+								{{#currentFeature.wheatherStormy}}
+								<div class="panel-body">
+									<center>
+										<div class="wheather">
+												<div class="stormy rainy animated pulse infinite">
+													<div class="shadow">
+
+													</div>
+												</div>
+												<div class="sub-wheather">
+													<div class="thunder">
+
+													</div>
+													<div class="rain">
+															<div class="droplet droplet1"></div>
+															<div class="droplet droplet2"></div>
+															<div class="droplet droplet3"></div>
+															<div class="droplet droplet4"></div>
+															<div class="droplet droplet5"></div>
+															<div class="droplet droplet6"></div>
+														</div>
+												</div>
+											</div>
+									</center>
+								</div>
+								{{/currentFeature.wheatherStormy}}
+								{{#currentFeature.wheatherCloud}}
+								<div class="panel-body" style="padding-bottom:160px;">
+										<center>
+											<div class="cloudy animated pulse infinite">
+												<div class="shadow">
+
+												</div>
+											</div>
+										</center>
+								</div>
+								{{/currentFeature.wheatherCloud}}
+								{{#currentFeature.wheatherCloudy}}
+								<div class="panel-body" style="padding-bottom:75px;">
+									<center>
+										<div class="mostly-suny suny">
+												<div class="sun animated pulse infinite">
+												</div>
+												<div class="cloudy animated pulse infinite">
+													<div class="shadow">
+
+													</div>
+												</div>
+										</div>
+
+										<div class="hazy cloudy animated pulse infinite">
+												<div class="shadow">
+
+												</div>
+										</div>
+									</center>
+								</div>
+								{{/currentFeature.wheatherCloudy}}
+								{{#currentFeature.wheatherSuny}}
+								<div class="panel-body" style="padding-bottom:140px;">
+									<center>
+											 <div class="suny">
+														<div class="sun animated pulse infinite">
+														</div>
+														<div class="mount"></div>
+														<div class="mount mount1"></div>
+														<div class="mount mount2"></div>
+												</div>
+									</center>
+								</div>
+								{{/currentFeature.wheatherSuny}}
+							</div>
+						</div>
+						{{/currentFeature.wheather}}
+
+						<div class="col-md-12 padding-0">
+							<div class="panel box-v1">
+								<div class="panel-heading bg-white border-none">
+									<div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
+										<h4 class="text-left">Rapport global</h4>
+									</div>
+									<div class="col-md-6 col-sm-6 col-xs-6 text-right">
+										<h4>
+											<span class="icon-eye icons icon text-right"></span>
+										</h4>
+									</div>
+								</div>
+								<div class="panel-body text-center">
+									<canvas class="doughnut-chart"></canvas>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- end: content -->
+
+		</div>
+
+		<!-- start: Mobile -->
+		<div id="mimin-mobile" class="reverse">
+			<div class="mimin-mobile-menu-list">
+				<div class="col-md-12 sub-mimin-mobile-menu-list animated fadeInLeft">
+					<ul class="nav nav-list">
+						{{#globalReport}}
+						<li class="ripple">
+							<a href="{{id}}.html"><span class="fa-{{icon}} fa"></span> {{name}}</a>
+						</li>
+							{{#features}}
+							<li class="ripple">
+								<a href="{{id}}.html"><span class="fa-{{icon}} fa"></span> {{name}}</a>
+							</li>
+							{{/features}}
+						{{/globalReport}}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<button id="mimin-mobile-menu-opener" class="animated rubberBand btn btn-circle btn-danger">
+			<span class="fa fa-bars"></span>
+		</button>
+		<!-- end: Mobile -->
+
+		<!-- start: Javascript -->
+		<script src="asset/js/jquery.min.js"></script>
+		<script src="asset/js/jquery.ui.min.js"></script>
+		<script src="asset/js/bootstrap.min.js"></script>
+
+
+		<!-- plugins -->
+		<script src="asset/js/plugins/chart.min.js"></script>
+		<script src="asset/js/plugins/jquery.animateNumber.min.js"></script>
+		<script src="asset/js/plugins/jquery.nicescroll.min.js"></script>
+
+
+		<!-- custom -->
+		<script src="asset/js/main.js"></script>
+		<script type="text/javascript">
+			(function(jQuery) {
+
+				/* =========== NUMBERS =========== */
+				$('#tests-number').animateNumber({
+					number: {{currentFeature.test.failed}}
+				}, 500);
+				$('#tests-execution').animateNumber({
+					number: {{currentFeature.time}}
+				}, 500);
+
+				/* =========== CHARTS =========== */
+				var doughnutData = [{
+					value: {{currentFeature.test.passed}},
+					color: "#27C24C",
+					highlight: "#336600",
+					label: "Succés"
+				}, {
+					value: {{currentFeature.test.failed}},
+					color: "#FF6656",
+					highlight: "#990033",
+					label: "Échec"
+				}, {
+					value: {{currentFeature.test.undefined}},
+					color: "#3300CC",
+					highlight: "#000066",
+					label: "Indéfini"
+				}, {
+					value: {{currentFeature.test.skipped}},
+					color: "#857E7E",
+					highlight: "#000000",
+					label: "Non exécuté"
+				}];
+
+				var ctx = $(".doughnut-chart")[0].getContext("2d");
+				window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {
+					responsive: true,
+					animationSteps: 30,
+					animationEasing: 'easeInOutQuint'
+				});
+
+				{{#features}}
+				var doughnut{{id}}Data = [{
+					value: {{test.passed}},
+					color: "#27C24C",
+					label: "Succés"
+				}, {
+					value: {{test.failed}},
+					color: "#FF6656",
+					label: "Échec"
+				}, {
+					value: {{test.undefined}},
+					color: "#3300CC",
+					label: "Indéfini"
+				}, {
+					value: {{test.skipped}},
+					color: "#857E7E",
+					label: "Non exécuté"
+				}];
+
+				ctx = $(".doughnut-{{id}}-chart")[0].getContext("2d");
+				window.myDoughnut = new Chart(ctx).Doughnut(doughnut{{id}}Data, {
+					showTooltips: false,
+					animationSteps: 30,
+					animationEasing: 'easeInOutQuint'
+				});
+
+				{{/features}}
+
+			})(jQuery);
+		</script>
+		<!-- end: Javascript -->
+</body>
+
+</html>

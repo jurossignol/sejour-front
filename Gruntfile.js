@@ -22,12 +22,12 @@ module.exports = function(grunt) {
     dist: 'dist',
     version: bowerJson.version
   };
-  
+
   grunt.initConfig({
 
     // Project settings
     yeoman: appConfig,
-    
+
     // Watch files change to run tasks automatically (atBegin is for executing task when running grunt)
     watch: {
       bower: {
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
         tasks: ['newer:jshint:all', 'newer:jscs:all']
       },
       jsTest: {
-        files: ['test/spec/**/*.js'],
+        files: ['test/spec/**/*.js', 'test/acceptance/**/*.js'],
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma:unit']
       },
       compass: {
@@ -103,7 +103,7 @@ module.exports = function(grunt) {
         options: {
           jshintrc: 'test/.jshintrc'
         },
-        src: ['test/spec/**/*.js']
+        src: ['test/spec/**/*.js', 'test/acceptance/hooks/**/*.js', 'test/acceptance/steps/**/*.js']
       }
     },
 
@@ -120,7 +120,7 @@ module.exports = function(grunt) {
         ]
       },
       test: {
-        src: ['test/spec/**/*.js']
+        src: ['test/spec/**/*.js', 'test/acceptance/hooks/**/*.js', 'test/acceptance/steps/**/*.js']
       }
     },
 
@@ -167,7 +167,7 @@ module.exports = function(grunt) {
         }]
       }
     },
-    
+
     // Automatically inject Bower components into the app
     wiredep: {
       app: {
@@ -211,7 +211,7 @@ module.exports = function(grunt) {
         imagesDir: '<%= yeoman.app %>/images',
         javascriptsDir: '<%= yeoman.app %>/scripts',
         fontsDir: '<%= yeoman.app %>/styles/fonts',
-        importPath: './bower_components',
+        importPath: ['./bower_components'],
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
         httpFontsPath: '/styles/fonts',
@@ -459,8 +459,8 @@ module.exports = function(grunt) {
         'compass'
       ],
       dist: [
-        'compass:dist', 
-        'imagemin', 
+        'compass:dist',
+        'imagemin',
         'svgmin'
       ]
     },
@@ -490,7 +490,7 @@ module.exports = function(grunt) {
         }
       }
     },
-    
+
     // Unit test runner
     karma: {
       options: {
@@ -510,22 +510,22 @@ module.exports = function(grunt) {
     // Acceptance test
     protractor: {
       options: {
-        configFile: "node_modules/protractor/example/conf.js", // Default config file 
-        keepAlive: true, // If false, the grunt process stops when the test fails. 
-        noColor: false, // If true, protractor will not use colors in its output. 
+        configFile: 'node_modules/protractor/example/conf.js', // Default config file
+        keepAlive: true, // If false, the grunt process stops when the test fails.
+        noColor: false, // If true, protractor will not use colors in its output.
         args: {
-          // Arguments passed to the command 
+          // Arguments passed to the command
         }
       },
-      target: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too. 
+      target: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
         options: {
-          configFile: "protractor.conf.js",
+          configFile: 'protractor.conf.js',
           //args: {}
         }
       },
     },
 
-    protractor_webdriver: {
+    'protractor_webdriver': {
       target: {
         options: {
         },

@@ -5,8 +5,8 @@ En tant que usager
 Je veux modifier mes réponses aux questions d'orientation
 Afin de pouvoir corriger une mauvaise saisie
 
-Critère d'acceptance : 
-- Lorsque je répond à une question, il m'est possible de revenir à cette question afin de changer ma réponse
+Critères d'acceptance :
+** Lorsque je répond à une question, il m'est possible de revenir à cette question afin de changer ma réponse
 
 Scénario: Je suis un salarié à l'étranger avec une autorisation de travail
     Etant donné un usager non connecté
